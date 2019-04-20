@@ -2,10 +2,10 @@ const express = require("express");
 
 const router = express.Router();
 
-const news = require("../models/news.js");
+// const news = require("../models/news.js");
 
 router.get("/", function(req, res) {
-  news.all(function(data) {
+  News.all(function(data) {
     const hbsObject = {
       news: data
     };

@@ -5,12 +5,52 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="/assets/css/newsscraptestyle.css" type="text/css" />
   <title>News Scrape</title>
+  <!-- Bootstrap CSS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="/assets/javascript/newsscrape.js"></script>
 </head>
 
 <body>
-  {{{ body }}}
+
+  <div class="container">
+
+    <div class="row" id="headder">
+      <div class="col-md-2">
+        <h1>
+          News Scrape
+        </h1>
+      </div>
+      <div class="col-md-1">
+        Home
+      </div>
+      <div class="col-md-1">
+        Saved Articles
+      </div>
+      <div class="col-md-8">
+      
+        <p>
+          All the news that&apos;s fit to scrape
+        </p>
+      </div>
+    </div>
+
+    <div class="row" id="mainBody">
+      something needs to go here.
+    </div>
+
+    <div class="row">
+      <div class="col-md-12" id="articleList">
+        <h3>Scraped articles:</h3>
+        {{{ body }}}
+      </div>
+    </div>
+
+
+  </div>
 </body>
 
 </html>
