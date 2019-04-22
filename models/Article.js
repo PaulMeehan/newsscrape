@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ArticleSchema = new Schema({
+  category: {
+    type: String,
+    required: false
+  },
   title: {
     type: String,
     required: true
-  },
-  summary: {
-    type: String,
-    required: false
   },
   url: {
     type: String,

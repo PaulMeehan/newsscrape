@@ -1,3 +1,9 @@
-<li>
-  {{headline}}
-</li>
+<div id="X{{_id}}">
+  <div class="article">
+    Category: {{category}} <br />
+    <div class="articleTitle">{{title}}</div>
+    <a href="{{url}}" target="_blank">{{url}}</a>
+  </div>
+<button class="saveButton" onclick="saveButton('{{_id}}')">Save</button>
+  <br /><br />
+</div>
