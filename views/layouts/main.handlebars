@@ -16,10 +16,15 @@
   <link rel="sytlesheet" href="../../assets/css/newsscrapestyle.css" type="text/css" />
 
   <script type="application/javascript">
+
+    
+    
     function saveButton(msg) {
-      console.log("In here " + msg);
+      {{!-- Remove the div element with the ID supplied in the parameter from the document.  --}}
+      {{!-- Need to put an X in front of the id number because querySelector requires a character in the first location --}}
       const elem = document.querySelector("#X" + msg);
       elem.parentNode.removeChild(elem);
+      window.location = "/article/" + msg;
     };
 
   </script>

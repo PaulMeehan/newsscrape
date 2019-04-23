@@ -104,11 +104,14 @@ app.get("/clearall", (req, res) => {
     });
 });
 
-app.post("/article/:id", (req, res) => {
-  console.log("clearall");
-  db.Article.deleteMany({})
+app.get("/article/:id", (req, res) => {
+  console.log("update");
+  const thisId = req.params.id;
+  console.log(thisId);
+  db.Article.findOneAndUpdate({ _id: thisId }, { saved : true }, { new: false })
     .then(results => {
-      res.render("index");
+      console.log("past");
+      // res.render("index");
     })
     .catch(err => {
       res.json(err);
