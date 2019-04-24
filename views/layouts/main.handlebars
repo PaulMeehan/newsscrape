@@ -4,27 +4,35 @@
 <head>
   <meta charset="UTF-8">
   <title>News Scrape</title>
+
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+
   <!-- Bootstrap CSS -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-  <script src="https://code.jquery.com/jquery.js"></script>
   <script src="/assets/javascript/newsscrape.js"></script>
 
   {{!-- <link rel="sytlesheet" href="../../public/assets/css/newsscrapestyle.css" type="text/css" /> --}}
   <link rel="sytlesheet" href="../../assets/css/newsscrapestyle.css" type="text/css" />
 
   <script type="application/javascript">
-
-    
     
     function saveButton(msg) {
-      {{!-- Remove the div element with the ID supplied in the parameter from the document.  --}}
+      {{!-- Remove the div element with the ID supplied in the parameter from the document. --}}
       {{!-- Need to put an X in front of the id number because querySelector requires a character in the first location --}}
       const elem = document.querySelector("#X" + msg);
       elem.parentNode.removeChild(elem);
-      window.location = "/article/" + msg;
+      window.location = "/article/save/" + msg;
+    };
+
+    function unSaveButton(msg) {
+      {{!-- Remove the div element with the ID supplied in the parameter from the document. --}}
+      {{!-- Need to put an X in front of the id number because querySelector requires a character in the first location --}}
+      const elem = document.querySelector("#X" + msg);
+      elem.parentNode.removeChild(elem);
+      window.location = "/article/unsave/" + msg;
     };
 
   </script>
@@ -33,48 +41,7 @@
 
 <body>
 
-  <div class="container">
-
-    <div class="row" id="headder">
-      <div class="col-md-2">
-        <h1>
-          News Scrape
-        </h1>
-      </div>
-      <div class="col-md-1">
-        Home
-      </div>
-      <div class="col-md-1">
-        Saved Articles
-      </div>
-      <div class="col-md-3">
-        <a class="btn btn-primary" href="/scrape">Scrape new articles</a>
-        {{!-- <button class="btn btn-primary" id="newScrape" onclick="scrapeArticles()">Scrape articles</button> --}}
-      </div>
-      <div class="col-md-5">
-        <a class="btn btn-primary" href="/clearall">Clear articles</a>
-      </div>
-    </div>
-
-    <div class="row" id="mainBody">
-      Scraped articles from <img src="https://www.mentalfloss.com/bundles/mfsite/images/global/mf_logo_navbar_long.png">
-    </div>
-
-    <div class="row">
-      <div class="col-md-12" id="articleList">
-        {{{ body }}}
-      </div>
-    </div>
-
-    <div class="row" id="messages">
-      <div class="col-md-12">
-        <span id="msgboard">
-          Looks like no messages have been scraped.  Try clicking the &quot;<b>Scrape new articles</b>&quot; button.
-        </span>
-      </div>
-    </div>
-
-  </div>
+  {{{ body }}}
 
 </body>
 

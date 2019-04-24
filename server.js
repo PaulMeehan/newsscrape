@@ -81,12 +81,26 @@ app.get("/scrape", (req, res) => {
 
 app.get("/all", (req, res) => {
   console.log("one");
-  db.Article.find({})
+  db.Article.find({ saved: false})
     .then(results => {
       const hbsObject = {
         article: results
       };
       res.render("index", hbsObject);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+app.get("/saved", (req, res) => {
+  console.log("one");
+  db.Article.find({ saved: true })
+    .then(results => {
+      const hbsObject = {
+        article: results
+      };
+      res.render("saved", hbsObject);
     })
     .catch(err => {
       res.json(err);
@@ -104,14 +118,22 @@ app.get("/clearall", (req, res) => {
     });
 });
 
-app.get("/article/:id", (req, res) => {
-  console.log("update");
+app.get("/article/save/:id", (req, res) => {
   const thisId = req.params.id;
-  console.log(thisId);
   db.Article.findOneAndUpdate({ _id: thisId }, { saved : true }, { new: false })
     .then(results => {
-      console.log("past");
-      // res.render("index");
+      console.log("saved");
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+app.get("/article/unsave/:id", (req, res) => {
+  const thisId = req.params.id;
+  db.Article.findOneAndUpdate({ _id: thisId }, { saved: false }, { new: false })
+    .then(results => {
+      console.log("unsaved");
     })
     .catch(err => {
       res.json(err);
