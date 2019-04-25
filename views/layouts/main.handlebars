@@ -1,48 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <title>News Scrape</title>
+  <head>
+    <meta charset="UTF-8">
+    <title>News Scrape</title>
 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
 
-  <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script type="application/javascript">
+      
+      function saveButton(msg) {
+        {{!-- Remove the div element with the ID supplied in the parameter from the document. --}}
+        {{!-- Need to put an X in front of the id number because querySelector requires a character in the first location --}}
+        const elem = document.querySelector("#X" + msg);
+        elem.parentNode.removeChild(elem);
+        window.location = "/article/save/" + msg;
+      };
 
-  <script src="/assets/javascript/newsscrape.js"></script>
+      function unSaveButton(msg) {
+        {{!-- Remove the div element with the ID supplied in the parameter from the document. --}}
+        {{!-- Need to put an X in front of the id number because querySelector requires a character in the first location --}}
+        const elem = document.querySelector("#X" + msg);
+        elem.parentNode.removeChild(elem);
+        window.location = "/article/unsave/" + msg;
+      };
 
-  {{!-- <link rel="sytlesheet" href="../../public/assets/css/newsscrapestyle.css" type="text/css" /> --}}
-  <link rel="sytlesheet" href="../../assets/css/newsscrapestyle.css" type="text/css" />
+    </script>
 
-  <script type="application/javascript">
-    
-    function saveButton(msg) {
-      {{!-- Remove the div element with the ID supplied in the parameter from the document. --}}
-      {{!-- Need to put an X in front of the id number because querySelector requires a character in the first location --}}
-      const elem = document.querySelector("#X" + msg);
-      elem.parentNode.removeChild(elem);
-      window.location = "/article/save/" + msg;
-    };
+  </head>
 
-    function unSaveButton(msg) {
-      {{!-- Remove the div element with the ID supplied in the parameter from the document. --}}
-      {{!-- Need to put an X in front of the id number because querySelector requires a character in the first location --}}
-      const elem = document.querySelector("#X" + msg);
-      elem.parentNode.removeChild(elem);
-      window.location = "/article/unsave/" + msg;
-    };
-
-  </script>
-
-</head>
-
-<body>
-
-  {{{ body }}}
-
-</body>
+  <body>
+    {{{ body }}}
+  </body>
 
 </html>

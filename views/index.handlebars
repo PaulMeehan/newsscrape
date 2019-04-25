@@ -1,6 +1,7 @@
 <div class="container">
 
   <div class="row" id="headder">
+    
     <div class="col-md-2">
       <h4>
         News Scrape
@@ -14,7 +15,6 @@
     </div>
     <div class="col-md-3">
       <a class="btn btn-primary" href="/scrape">Scrape new articles</a>
-      {{!-- <button class="btn btn-primary" id="newScrape" onclick="scrapeArticles()">Scrape articles</button> --}}
     </div>
     <div class="col-md-3">
       <a class="btn btn-primary" href="/clearall">Clear articles</a>
@@ -35,14 +35,6 @@
         {{> articles/article-block}}
         {{/each}}
       </div>
-    </div>
-  </div>
-
-  <div class="row" id="messages">
-    <div class="col-md-12">
-      <span id="msgboard">
-        Looks like no messages have been scraped. Try clicking the &quot;<b>Scrape new articles</b>&quot; button.
-      </span>
     </div>
   </div>
 
